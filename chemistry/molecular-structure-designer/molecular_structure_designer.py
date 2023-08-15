@@ -2,6 +2,10 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 
 def to_smiles(notation):
+    
+    # TODO: Replace to a GPT converter from molecular structure to SMILES 
+    # notation.
+
     # Replace common patterns with corresponding SMILES notation
     smiles = (
         notation
@@ -27,17 +31,20 @@ notations = [
 
 # Convert to SMILES and print results
 smiles_notations = [to_smiles(notation) for notation in notations]
-print(smiles_notations)
+print('smiles_notations list:', smiles_notations)
 
 # Creating the molecule structure
 
-for i in smiles_notations:
-    print(i)
-    molecule_structure = str(i)
+for molecule_structure in smiles_notations:
+    # Test i
+    print('molecule_structure:', molecule_structure)
 
     # Creating a molecule object
-    molecule = Chem.MolFromSmiles(molecule_structure)
+    # molecule = Chem.MolFromSmiles(molecule_structure)
 
     # Drawing the molecule
-    molecule_image = Draw.MolToImage(molecule)
-    molecule_image.show()
+    # molecule_image = Draw.MolToImage(molecule)
+    # molecule_image.show()
+
+    # TODO: Make Draw.MolToImage(molecule) work for the whole molecule, not 
+    # only for the first atom.
